@@ -1,0 +1,5 @@
+Starting a react project:
+create-react-app AppName
+
+Then go to the app folder:
+npm start 
