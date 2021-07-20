@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 
+
+// JSX
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <h2>Hello Ecfor</h2>
+     <Person/>
+     {/* <Person></Person> */}
+    </div>
+  );
+}
+
+function Person() {
+  return(
+    <div>
+      <h3>I am person component.</h3>
     </div>
   );
 }
