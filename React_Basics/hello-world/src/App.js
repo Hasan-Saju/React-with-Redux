@@ -25,10 +25,15 @@ import Person from './components/Person'
 class App extends Component{
   // calculation can be done
   render(){
+    let obj = new Component();
+    console.log(obj); 
     return (
           <div className="App">
            <h2>Hello Ecfor</h2>
-           <Person/>
+           <Person name="Saju" age="22">I am Saju</Person>
+           <Person name="Fahad" age="32"/>
+           <Person name="Afnan" age="23"/>
+           <Person name="Dihan" age="323"/>
           </div>
         );
   }
