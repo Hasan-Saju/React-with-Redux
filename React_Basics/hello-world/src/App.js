@@ -1,7 +1,7 @@
-import React,{Component} from 'react';
-import './App.css';
-import Person from './components/Person'
-
+import React, { Component } from "react";
+import "./App.css";
+import Person from "./components/Person";
+import Book from "./components/Book";
 
 // JSX
 // Functional Component
@@ -10,7 +10,7 @@ import Person from './components/Person'
 //     <div className="App">
 //      <h2>Hello Ecfor</h2>
 //      <Person/>
-//      // <Person></Person> 
+//      // <Person></Person>
 //     </div>
 //   );
 
@@ -22,23 +22,30 @@ import Person from './components/Person'
 // only 1 root element is possible in jsx
 
 // Class component
-class App extends Component{
+class App extends Component {
   // calculation can be done
-  render(){
+  // props baire theke pass kora info, state component er nijer info
+  // state can be used only in class based components
+  render() {
     let obj = new Component();
-    console.log(obj); 
+    console.log(obj);
     return (
-          <div className="App">
-           <h2>Hello Ecfor</h2>
-           <Person name="Saju" age="22">I am Saju</Person>
-           <Person name="Fahad" age="32"/>
-           <Person name="Afnan" age="23"/>
-           <Person name="Dihan" age="323"/>
-          </div>
-        );
+      <div className="App">
+        <h2>Hello Ecfor</h2>
+        <Person name="Saju" age="22">
+          I am Saju
+        </Person>
+        <Person name="Fahad" age="32" />
+        <Person name="Afnan" age="23" />
+        <Person name="Dihan" age="323" />
+        <h1>Book List</h1>
+        <Book bookName="1984" writer="George Orwell" />
+        <Book bookName="Badshah Namdar" writer="Humayun Ahmed" />
+        <Book bookName="Da Vinci Code" writer="Dan Brown" />
+      </div>
+    );
   }
 }
-
 
 // function Person() {
 //   return(
