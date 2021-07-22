@@ -35,6 +35,7 @@ class App extends Component {
       { id: 3, bookName: "BD", writer: "1971" },
     ],
     otherProperty: "Hello from state",
+    showBooks: true,
   };
   // same as top
   // constructor() {
@@ -86,6 +87,12 @@ class App extends Component {
     });
   };
 
+  toggleBooks = () => {
+    this.setState({
+      showBooks: !this.state.showBooks,
+    });
+  };
+
   render() {
     // css just js er moto likha lagbe
     // right side string er moto, left side css without hyphen and will use lower camel cse
@@ -98,19 +105,22 @@ class App extends Component {
     let obj = new Component();
     console.log(obj);
 
+    let books = null;
     // const booksState = this.state.books;
-    const books = this.state.books.map((book, index) => {
-      return (
-        <Book
-          bookName={book.bookName}
-          writer={book.writer}
-          // delete={this.deleteBookState.bind(this, index)}
-          delete={() => this.deleteBookState(index)}
-          key={book.id}
-          inputName={(event) => this.changeWithInputState(event, index)}
-        />
-      );
-    });
+    if (this.state.showBooks) {
+      books = this.state.books.map((book, index) => {
+        return (
+          <Book
+            bookName={book.bookName}
+            writer={book.writer}
+            // delete={this.deleteBookState.bind(this, index)}
+            delete={() => this.deleteBookState(index)}
+            key={book.id}
+            inputName={(event) => this.changeWithInputState(event, index)}
+          />
+        );
+      });
+    }
     console.log(books);
 
     return (
@@ -133,7 +143,9 @@ class App extends Component {
           Change State
         </button>
         <input type="text" onChange={this.changeWithInputState}></input>
-
+        <br />
+        <button onClick={this.toggleBooks}>Toggle Books</button>
+        {/* {this.state.showBooks ? books : null} */}
         {books}
         {/* <Book
           bookName={this.state.books[0].bookName}
