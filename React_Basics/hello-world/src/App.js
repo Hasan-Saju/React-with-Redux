@@ -123,5 +123,6 @@ class App extends Component {
 
 //   // return React.createElement('div',null,React.createElement('h1',null,"I am person component"));
 // }
+// Basic features and Syntax done
 
 export default App;
