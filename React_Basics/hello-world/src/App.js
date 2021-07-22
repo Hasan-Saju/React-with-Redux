@@ -64,6 +64,14 @@ class App extends Component {
   };
 
   render() {
+    // css just js er moto likha lagbe
+    // right side string er moto, left side css without hyphen and will use lower camel cse
+    const style = {
+      border: "1px solid red",
+      borderRadius: "5px",
+      backgroundColor: "black",
+      color: "white",
+    };
     let obj = new Component();
     console.log(obj);
     return (
@@ -75,7 +83,7 @@ class App extends Component {
         <Person name="Fahad" age="32" />
         <Person name="Afnan" age="23" />
         <Person name="Dihan" age="323" />
-        <h1>Book List</h1>
+        <h1 style={style}>Book List</h1>
         <Book bookName="1984" writer="George Orwell" />
         <Book bookName="Badshah Namdar" writer="Humayun Ahmed" />
         <Book bookName="Da Vinci Code" writer="Dan Brown" />
