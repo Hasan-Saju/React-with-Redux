@@ -1,4 +1,4 @@
-import React, { Component } from "react"; //for compiling jsx in Person()
+import React from "react"; //for compiling jsx in Person()
 
 // function Person() {
 //   return(

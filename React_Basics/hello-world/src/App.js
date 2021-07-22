@@ -26,6 +26,31 @@ class App extends Component {
   // calculation can be done
   // props baire theke pass kora info, state component er nijer info
   // state can be used only in class based components
+
+  // state
+  state = {
+    books: [
+      { bookName: "Deyal", writer: "Humayun" },
+      { bookName: "Lal Nil", writer: "Humayun Azad" },
+    ],
+    otherProperty: "Hello from state",
+  };
+  // same as top
+  // constructor() {
+  //   super();
+  //   this.state = {};
+  // }
+
+  changeBookState = () => {
+    console.log("Button Clicked");
+    this.setState({
+      books: [
+        { bookName: "IUT", writer: "OIC" },
+        { bookName: "Peace", writer: "Hasan Saju" },
+      ],
+    });
+  };
+
   render() {
     let obj = new Component();
     console.log(obj);
@@ -42,6 +67,18 @@ class App extends Component {
         <Book bookName="1984" writer="George Orwell" />
         <Book bookName="Badshah Namdar" writer="Humayun Ahmed" />
         <Book bookName="Da Vinci Code" writer="Dan Brown" />
+        <h2>Passing Info through State</h2>
+        {/* changeBookState() dile page load howar sathe sathe function load hoye
+        jabe  */}
+        <button onClick={this.changeBookState}>Change State</button>
+        <Book
+          bookName={this.state.books[0].bookName}
+          writer={this.state.books[0].writer}
+        />
+        <Book
+          bookName={this.state.books[1].bookName}
+          writer={this.state.books[1].writer}
+        />
       </div>
     );
   }
