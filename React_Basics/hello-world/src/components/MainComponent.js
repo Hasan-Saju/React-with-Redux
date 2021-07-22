@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import Person from "./Person";
-import Book from "./Book";
+import Book from "./representational/Book";
 import bookList from "../assets/books";
+import BookList from "./lists/BookList";
 
 // JSX
 // Functional Component
@@ -109,18 +110,19 @@ class MainComponent extends Component {
     let books = null;
     // const booksState = this.state.books;
     if (this.state.showBooks) {
-      books = this.state.books.map((book, index) => {
-        return (
-          <Book
-            bookName={book.bookName}
-            writer={book.writer}
-            // delete={this.deleteBookState.bind(this, index)}
-            delete={() => this.deleteBookState(index)}
-            key={book.id}
-            inputName={(event) => this.changeWithInputState(event, index)}
-          />
-        );
-      });
+      books = <BookList books={this.state.books} />;
+      //    this.state.books.map((book, index) => {
+      //     return (
+      //       <Book
+      //         bookName={book.bookName}
+      //         writer={book.writer}
+      //         // delete={this.deleteBookState.bind(this, index)}
+      //         delete={() => this.deleteBookState(index)}
+      //         key={book.id}
+      //         inputName={(event) => this.changeWithInputState(event, index)}
+      //       />
+      //     );
+      //   });
     }
     console.log(books);
 
