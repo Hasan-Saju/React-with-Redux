@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Person from "./Person";
 import Book from "./Book";
+import bookList from "../assets/books";
 
 // JSX
 // Functional Component
@@ -28,11 +29,12 @@ class MainComponent extends Component {
 
   // state
   state = {
-    books: [
-      { id: 1, bookName: "Deyal", writer: "Humayun" },
-      { id: 2, bookName: "Lal Nil", writer: "Humayun Azad" },
-      { id: 3, bookName: "BD", writer: "1971" },
-    ],
+    // books: [
+    //   { id: 1, bookName: "Deyal", writer: "Humayun" },
+    //   { id: 2, bookName: "Lal Nil", writer: "Humayun Azad" },
+    //   { id: 3, bookName: "BD", writer: "1971" },
+    // ],
+    books: bookList,
     otherProperty: "Hello from state",
     showBooks: true,
   };
