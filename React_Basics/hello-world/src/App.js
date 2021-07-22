@@ -53,6 +53,16 @@ class App extends Component {
     });
   };
 
+  changeWithInputState = (event) => {
+    this.setState({
+      books: [
+        { bookName: event.target.value, writer: "OIC" },
+        { bookName: "Peace", writer: "Hasan Saju" },
+        { bookName: "Teach urself c++", writer: "Schildt" },
+      ],
+    });
+  };
+
   render() {
     let obj = new Component();
     console.log(obj);
@@ -75,9 +85,12 @@ class App extends Component {
         <button onClick={() => this.changeBookState("Passing with parameter")}>
           Change State
         </button>
+        <input type="text" onChange={this.changeWithInputState}></input>
+
         <Book
           bookName={this.state.books[0].bookName}
           writer={this.state.books[0].writer}
+          inputName={this.changeWithInputState}
         />
         <Book
           bookName={this.state.books[1].bookName}
