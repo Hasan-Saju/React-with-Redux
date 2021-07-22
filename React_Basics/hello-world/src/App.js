@@ -32,6 +32,7 @@ class App extends Component {
     books: [
       { bookName: "Deyal", writer: "Humayun" },
       { bookName: "Lal Nil", writer: "Humayun Azad" },
+      { bookName: "BD", writer: "1971" },
     ],
     otherProperty: "Hello from state",
   };
@@ -41,12 +42,13 @@ class App extends Component {
   //   this.state = {};
   // }
 
-  changeBookState = () => {
+  changeBookState = (newBookSeries) => {
     console.log("Button Clicked");
     this.setState({
       books: [
-        { bookName: "IUT", writer: "OIC" },
+        { bookName: newBookSeries, writer: "OIC" },
         { bookName: "Peace", writer: "Hasan Saju" },
+        { bookName: "Teach urself c++", writer: "Schildt" },
       ],
     });
   };
@@ -70,7 +72,9 @@ class App extends Component {
         <h2>Passing Info through State</h2>
         {/* changeBookState() dile page load howar sathe sathe function load hoye
         jabe  */}
-        <button onClick={this.changeBookState}>Change State</button>
+        <button onClick={() => this.changeBookState("Passing with parameter")}>
+          Change State
+        </button>
         <Book
           bookName={this.state.books[0].bookName}
           writer={this.state.books[0].writer}
@@ -78,6 +82,11 @@ class App extends Component {
         <Book
           bookName={this.state.books[1].bookName}
           writer={this.state.books[1].writer}
+        />
+        <Book
+          bookName={this.state.books[2].bookName}
+          writer={this.state.books[2].writer}
+          change={this.changeBookState.bind(this, "Another Change")}
         />
       </div>
     );
