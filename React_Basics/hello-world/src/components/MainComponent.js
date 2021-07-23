@@ -110,7 +110,13 @@ class MainComponent extends Component {
     let books = null;
     // const booksState = this.state.books;
     if (this.state.showBooks) {
-      books = <BookList books={this.state.books} />;
+      books = (
+        <BookList
+          books={this.state.books}
+          deleteBookState={this.deleteBookState}
+          changeWithInputState={this.changeWithInputState}
+        />
+      );
       //    this.state.books.map((book, index) => {
       //     return (
       //       <Book

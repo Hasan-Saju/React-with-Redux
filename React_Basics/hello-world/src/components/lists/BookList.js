@@ -8,9 +8,9 @@ const BookList = (props) => {
         bookName={book.bookName}
         writer={book.writer}
         // delete={this.deleteBookState.bind(this, index)}
-        delete={() => this.deleteBookState(index)}
+        delete={() => props.deleteBookState(index)}
         key={book.id}
-        inputName={(event) => this.changeWithInputState(event, index)}
+        inputName={(event) => props.changeWithInputState(event, index)}
       />
     );
   });
