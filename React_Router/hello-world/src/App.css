@@ -17,3 +17,10 @@
   text-decoration: none;
   color: black;
 }
+
+/* navlink,link actually <a> hishebei render hoy */
+.nav-bar a:hover,
+a:active,
+a.active {
+  color: orange;
+}
