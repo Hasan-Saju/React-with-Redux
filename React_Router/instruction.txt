@@ -12,3 +12,6 @@ Stateless Component-> Presentational Component (no logic)
 
 {% comment %} for Router {% endcomment %}
 npm install --save react-router react-router-dom
+
+we have to add BrowserRouter in the root Component 
+and Route to the MainComponent
