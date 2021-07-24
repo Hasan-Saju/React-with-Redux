@@ -1,77 +1,93 @@
-import React, { Component } from 'react';
-import BookList from './lists/BookList';
-import bookList from '../assets/books';
-
+import React, { Component } from "react";
+import BookList from "./lists/BookList";
+import bookList from "../assets/books";
 
 class MainComponent extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            books: bookList,
-            showBooks: true
-        }
-        console.log("MainComponent constructor!");
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      books: bookList,
+      showBooks: true,
+    };
+    console.log("MainComponent constructor!");
+  }
 
+  changeWithInputState = (event, index) => {
+    const book = {
+      ...this.state.books[index],
+    };
+    book.bookName = event.target.value;
+    const books = [...this.state.books];
+    books[index] = book;
+    this.setState({ books: books });
+  };
 
-    changeWithInputState = (event, index) => {
-        const book = {
-            ...this.state.books[index]
-        }
-        book.bookName = event.target.value;
-        const books = [...this.state.books];
-        books[index] = book;
-        this.setState({ books: books });
-    }
+  deleteBookState = (index) => {
+    const books = [...this.state.books];
+    books.splice(index, 1);
+    this.setState({
+      books: books,
+    });
+  };
 
-    deleteBookState = index => {
-        const books = [...this.state.books];
-        books.splice(index, 1);
-        this.setState({
-            books: books
-        });
+  toggleBooks = () => {
+    this.setState({ showBooks: !this.state.showBooks });
+  };
+
+  componentDidMount() {
+    console.log("MainComponent componentDidMount!");
+  }
+
+  UNSAFE_componentWillMount() {
+    console.log("MainComponent componentWillMount!");
+  }
+
+  //   component update lifecycle by state
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log(
+      "Updated MainComponent shouldComponentUpdate",
+      nextProps,
+      nextState
+    );
+    return true;
+  }
+
+  UNSAFE_componentWillUpdate(nextProps, nextState) {
+    console.log("Updated MainComponent componentWillUpdate");
+  }
+
+  componentDidUpdate(nextProps, nextState) {
+    console.log("Updated MainComponent componentDidUpdate");
+  }
+
+  render() {
+    console.log("MainCompoent render");
+    const style = {
+      border: "1px solid red",
+      borderRadius: "5px",
+      backgroundColor: "black",
+      color: "white",
     };
 
-    toggleBooks = () => {
-        this.setState({ showBooks: !this.state.showBooks });
+    let books = null;
+    if (this.state.showBooks) {
+      books = (
+        <BookList
+          books={this.state.books}
+          deleteBookState={this.deleteBookState}
+          changeWithInputState={this.changeWithInputState}
+        />
+      );
     }
 
-
-
-    componentDidMount() {
-        console.log("MainComponent componentDidMount!");
-    }
-
-    UNSAFE_componentWillMount() {
-        console.log("MainComponent componentWillMount!");
-    }
-
-    render() {
-        console.log("MainCompoent render");
-        const style = {
-            border: "1px solid red",
-            borderRadius: "5px",
-            backgroundColor: "black",
-            color: "white",
-        };
-
-        let books = null;
-        if (this.state.showBooks) {
-            books = <BookList
-                books={this.state.books}
-                deleteBookState={this.deleteBookState}
-                changeWithInputState={this.changeWithInputState}
-            />
-        }
-
-        return (
-            <div className="App">
-                <h1 style={style}>Book List</h1>
-                <button onClick={this.toggleBooks}>Toggle Books</button>
-                {books}
-            </div>
-        );
-    }
+    return (
+      <div className="App">
+        <h1 style={style}>Book List</h1>
+        <button onClick={this.toggleBooks}>Toggle Books</button>
+        {books}
+      </div>
+    );
+  }
 }
 
 export default MainComponent;
