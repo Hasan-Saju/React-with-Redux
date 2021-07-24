@@ -96,6 +96,7 @@ class MainComponent extends Component {
   };
 
   render() {
+    console.log("MainComponent render");
     // css just js er moto likha lagbe
     // right side string er moto, left side css without hyphen and will use lower camel cse
     const style = {
