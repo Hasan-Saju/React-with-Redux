@@ -1,0 +1,11 @@
+Starting a react project:
+create-react-app AppName
+
+Then go to the app folder:
+npm start 
+
+
+
+{% comment %} Light Theory {% endcomment %}
+Stateful Component-> Conatiner Component
+Stateless Component-> Presentational Component (no logic)
