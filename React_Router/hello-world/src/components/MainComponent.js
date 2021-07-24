@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import BookList from "./lists/BookList";
 import bookList from "../assets/books";
+import NewBook from "./representational/NewBook";
 
 class MainComponent extends Component {
   constructor(props) {
@@ -54,9 +55,20 @@ class MainComponent extends Component {
 
     return (
       <div className="App">
+        <div className="nav-bar">
+          <ul>
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <li>
+              <a href="/new">New Book</a>
+            </li>
+          </ul>
+        </div>
         <h1 style={style}>Book List</h1>
         <button onClick={this.toggleBooks}>Toggle Books</button>
         {books}
+        <NewBook />
       </div>
     );
   }
