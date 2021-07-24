@@ -25,8 +25,6 @@ class MainComponent extends Component {
     }
 
     deleteBookState = index => {
-        //const books = this.state.books.slice();
-        //const books = this.state.books.map(item => item);
         const books = [...this.state.books];
         books.splice(index, 1);
         this.setState({
