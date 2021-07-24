@@ -9,3 +9,6 @@ npm start
 {% comment %} Light Theory {% endcomment %}
 Stateful Component-> Conatiner Component
 Stateless Component-> Presentational Component (no logic)
+
+{% comment %} for Router {% endcomment %}
+npm install --save react-router react-router-dom
