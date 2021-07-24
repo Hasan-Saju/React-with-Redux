@@ -7,17 +7,8 @@ class BookList extends Component {
     console.log("BookList constructor");
   }
 
-  UNSAFE_componentWillMount() {
-    console.log("BookList componentWillMount!");
-  }
-
   componentDidMount() {
     console.log("BookList componentDidMount!");
-  }
-
-  //   Component Update Lifecycle(By props)
-  UNSAFE_componentWillReceiveProps(nextProps) {
-    console.log("Updated BookList componentWillReceiveProps", nextProps);
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -25,12 +16,30 @@ class BookList extends Component {
     return true;
   }
 
-  UNSAFE_componentWillUpdate(nextProps, nextState) {
-    console.log("Updated BookList componentWillUpdate");
-  }
-
   componentDidUpdate(nextProps, nextState) {
     console.log("Updated BookList componentDidUpdate");
+  }
+
+  //   UNSAFE_componentWillMount() {
+  //     console.log("BookList componentWillMount!");
+  //   }
+
+  //   UNSAFE_componentWillReceiveProps(nextProps) {
+  //     console.log("Updated BookList componentWillReceiveProps", nextProps);
+  //   }
+
+  //   UNSAFE_componentWillUpdate(nextProps, nextState) {
+  //     console.log("Updated BookList componentWillUpdate");
+  //   }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    console.log("BookList getDerivedStateFromProps", nextProps, prevState);
+    return prevState;
+  }
+
+  //   alternate of will update
+  getSnapshotBeforeUpdate() {
+    console.log("Update BookList getSnapshotBeforeUpdate");
   }
 
   render() {

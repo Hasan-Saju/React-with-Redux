@@ -38,11 +38,6 @@ class MainComponent extends Component {
     console.log("MainComponent componentDidMount!");
   }
 
-  UNSAFE_componentWillMount() {
-    console.log("MainComponent componentWillMount!");
-  }
-
-  //   component update lifecycle by state
   shouldComponentUpdate(nextProps, nextState) {
     console.log(
       "Updated MainComponent shouldComponentUpdate",
@@ -52,12 +47,31 @@ class MainComponent extends Component {
     return true;
   }
 
-  UNSAFE_componentWillUpdate(nextProps, nextState) {
-    console.log("Updated MainComponent componentWillUpdate");
-  }
-
   componentDidUpdate(nextProps, nextState) {
     console.log("Updated MainComponent componentDidUpdate");
+  }
+
+  //   UNSAFE gulay current version gives warning
+  //   UNSAFE_componentWillMount() {
+  //     console.log("MainComponent componentWillMount!");
+  //   }
+
+  //   UNSAFE_componentWillUpdate(nextProps, nextState) {
+  //     console.log("Updated MainComponent componentWillUpdate");
+  //   }
+
+  //   same for create and update
+  static getDerivedStateFromProps(nextProps, prevState) {
+    console.log(
+      "Main Component getDerivedStateFromProps",
+      nextProps,
+      prevState
+    );
+    return prevState;
+  }
+
+  getSnapshotBeforeUpdate() {
+    console.log("Update MainComponent getSnapshotBeforeUpdate");
   }
 
   render() {
