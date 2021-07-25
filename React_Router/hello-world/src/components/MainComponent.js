@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import BookList from "./lists/BookList";
 import bookList from "../assets/books";
 import NewBook from "./representational/NewBook";
-import { Route, NavLink } from "react-router-dom";
+import { Route, NavLink, Switch } from "react-router-dom";
 import BookDetail from "./representational/BookDetail";
 
 class MainComponent extends Component {
@@ -44,13 +44,16 @@ class MainComponent extends Component {
             </li>
           </ul>
         </nav>
-        <Route path="/" exact render={() => books} />
-        {/* <Route path="/new-book" exact render={() => <NewBook />} /> */}
-        <Route path="/new-book" exact component={NewBook} />
-        <Route
-          path="/book/:id"
-          render={() => <BookDetail book={this.state.selectedBook} />}
-        />
+        <Switch>
+          <Route path="/" exact render={() => books} />
+          <Route path="/new-book" exact component={NewBook} />
+          <Route
+            path="/:id"
+            render={() => <BookDetail book={this.state.selectedBook} />}
+          />
+        </Switch>
+        {/* Switch will always call the first match */}
+        {/* it is possible to keep some route out of switch */}
       </div>
     );
   }

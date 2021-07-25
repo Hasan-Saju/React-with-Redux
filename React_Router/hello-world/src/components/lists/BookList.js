@@ -9,7 +9,7 @@ class BookList extends Component {
     return this.props.books.map((book, index) => {
       return (
         <Link
-          to={"/book/" + book.id}
+          to={"/" + book.id}
           key={book.id}
           style={{ textDecoration: "none", color: "black" }}
         >
