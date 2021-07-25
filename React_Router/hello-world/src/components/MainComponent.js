@@ -47,7 +47,10 @@ class MainComponent extends Component {
         <Route path="/" exact render={() => books} />
         {/* <Route path="/new-book" exact render={() => <NewBook />} /> */}
         <Route path="/new-book" exact component={NewBook} />
-        <BookDetail book={this.state.selectedBook} />
+        <Route
+          path="/book/:id"
+          render={() => <BookDetail book={this.state.selectedBook} />}
+        />
       </div>
     );
   }
