@@ -46,9 +46,8 @@ class NewBook extends Component {
           <input
             type="text"
             name="bookName"
-            // value={this.state.bookName}
-            // onChange={(event) => this.handleInputChange(event)}
             value={this.state.bookName}
+            // onChange={(event) => this.handleInputChange(event)}
             onChange={this.handleInputChange}
           />
           <br />

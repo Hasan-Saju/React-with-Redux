@@ -4,6 +4,7 @@ import bookList from "../assets/books";
 import NewBook from "./representational/NewBook";
 import { Route, NavLink, Switch, Redirect } from "react-router-dom";
 import BookDetail from "./representational/BookDetail";
+import NewBookUncontrol from "./representational/NewBookUncontrol";
 
 class MainComponent extends Component {
   constructor(props) {
@@ -46,7 +47,7 @@ class MainComponent extends Component {
         </nav>
         <Switch>
           <Route path="/books" exact render={() => books} />
-          <Route path="/new-book" exact component={NewBook} />
+          <Route path="/new-book" exact component={NewBookUncontrol} />
           <Route
             path="/:id"
             render={() => <BookDetail book={this.state.selectedBook} />}
